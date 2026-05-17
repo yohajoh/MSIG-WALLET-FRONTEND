@@ -26,11 +26,7 @@ function App() {
       const signer = await provider.getSigner();
       const address = await signer.getAddress();
 
-      const walletContract = new ethers.Contract(
-        CONTRACT_ADDRESS,
-        MultiSigWalletABI,
-        signer
-      );
+      const walletContract = new ethers.Contract(CONTRACT_ADDRESS, MultiSigWalletABI, signer);
 
       setAccount(address);
       setContract(walletContract);
@@ -55,9 +51,9 @@ function App() {
           <button
             onClick={connectWallet}
             className={`px-8 py-3 rounded-2xl font-bold transition-all duration-300 active:scale-95 shadow-2xl ${
-              account 
-              ? "bg-gray-900 text-green-400 border border-green-500/20" 
-              : "bg-blue-600 text-white hover:bg-blue-500 shadow-blue-900/20"
+              account
+                ? "bg-gray-900 text-green-400 border border-green-500/20"
+                : "bg-blue-600 text-white hover:bg-blue-500 shadow-blue-900/20"
             }`}
           >
             {account ? (
@@ -82,12 +78,12 @@ function App() {
                 </div>
                 <div className="absolute inset-0 w-20 h-20 bg-blue-500 opacity-10 blur-2xl rounded-full"></div>
               </div>
-              
+
               <h2 className="text-2xl font-bold text-gray-200">Awaiting Connection</h2>
               <p className="text-gray-500 max-w-sm mt-3 leading-relaxed">
                 Unlock your authorized owner wallet to access the multisig registry and manage pending transactions.
               </p>
-              
+
               <div className="mt-10 flex gap-4 text-[10px] font-mono text-gray-700 uppercase tracking-tighter">
                 <span>Ethereum</span>
                 <span>•</span>
